@@ -50,8 +50,6 @@ public class QRTest {
         // maybe you change this for your local chromedriver
         System.setProperty("webdriver.chrome.driver", "/Users/chromedriver");
         driver = new ChromeDriver();
-
-        driver.get("https://eliasnogueira.github.io/selenium-read-qrcode/");
     }*/
     
     @BeforeClass
