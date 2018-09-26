@@ -48,7 +48,7 @@ public class QRTest {
    /* @BeforeTest
     public void setup() {
         // maybe you change this for your local chromedriver
-        System.setProperty("webdriver.chrome.driver", "/Users/eliasnogueira/Selenium/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/chromedriver");
         driver = new ChromeDriver();
 
         driver.get("https://eliasnogueira.github.io/selenium-read-qrcode/");
@@ -63,20 +63,19 @@ public class QRTest {
     @BeforeMethod
     public void methodSetUp() {
     	driver = new ChromeDriver();
-        //ChromeOptions chromeOptions = new ChromeOptions();
-        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.get("https://eliasnogueira.github.io/selenium-read-qrcode/");
+        driver.get("https://vidyasagarpogiri.github.io/QRCode/");
     }
 
     @Test
-    public void readQRCodeFromURL() throws IOException, NotFoundException {
+    public void readQRCodeFromURL() throws IOException, NotFoundException, InterruptedException {
 
         String qrCodeFile = driver.findElement(By.id("qr")).getAttribute("src");
 
-        // get the qr code content and assert the result
+        // get the qr code content and redirect to the Linkedin URL
         String qrCodeResult = decodeQRCode(qrCodeFile);
         System.out.println(qrCodeResult);
-        //assertEquals(qrCodeResult, "Congratulations!");
+        driver.get(qrCodeResult);
+        Thread.sleep(5000);
     }
 
    /* @Test
